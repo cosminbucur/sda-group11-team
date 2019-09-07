@@ -20,7 +20,5 @@ public class RandomizerApp {
         // save person to list (database)
         List<Person> people = new ArrayList<>();
         people.add(person);
-
-
     }
 }
