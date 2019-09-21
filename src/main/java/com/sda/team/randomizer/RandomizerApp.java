@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,7 +23,19 @@ public class RandomizerApp {
 
         // save person to list (database)
         List<Person> people = new ArrayList<>();
-        people.add(person);
+        //   people.add(person);
+        people.add(new Person("vlad", 1));
+        people.add(new Person("laur", 4));
+        people.add(new Person("cosmina", 3));
+
+        Collections.sort(people);
+
+        System.out.println("People after sort");
+        System.out.println(people.toString());
+
+
+
+
 
         Person alex = new Person("alex", 2);
         people.add(1, alex);
