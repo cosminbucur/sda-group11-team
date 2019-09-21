@@ -11,4 +11,8 @@ public class Person {
         this.difficulty = difficulty;
         this.isPresent = true;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
