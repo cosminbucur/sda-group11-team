@@ -1,11 +1,10 @@
 package com.sda.team.randomizer;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,12 +20,11 @@ public class RandomizerApp {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
 
-        // save person to list (database)
-        List<Person> people = new ArrayList<>();
-
         // TODO: implement random difficulty setting
         // create object from name
         Person person = new Person(name, 1);
+
+        // TODO: use relative path
         String path = "C:\\dev\\sda\\group11-team\\src\\main\\resources\\people.txt";
 
         addPersonByAppend(path, person);
@@ -34,9 +32,6 @@ public class RandomizerApp {
         // save person to list (database)
         List<Person> people = new ArrayList<>();
         people.add(person);
-
-        // TODO: use relative path
-        String path = "C:\\dev\\sda\\group11-team\\src\\main\\resources\\people.txt";
 
         List<String> listOfStrings = loadData(path);
         printList(listOfStrings);
@@ -58,7 +53,6 @@ public class RandomizerApp {
     }
 
     // TODO: load data using nio
-
     private static void printList(List<String> list) {
         list.forEach(element -> System.out.println(element));
     }
