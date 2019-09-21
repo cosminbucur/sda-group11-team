@@ -3,7 +3,6 @@ package com.sda.team.randomizer;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,24 +24,27 @@ public class RandomizerApp {
         List<Person> people = new ArrayList<>();
         people.add(person);
 
+        String path = "C:\\dev\\sda\\group11-team\\src\\main\\resources\\people.txt";
 
-        //add new people to file
-        addNewPeopleToFile(person);
-
-
+        addPersonByAppend(path, person);
     }
 
-    public static void addNewPeopleToFile(Person person) {
-        try (FileWriter names = new FileWriter("names.txt", true);
-             BufferedWriter writer = new BufferedWriter(names);
-             PrintWriter out = new PrintWriter(writer)) {
-            //STILL HAVE TO ADD ACTUAL NAMES TO THE FILE
-            out.println(person.toString());
-
+    /**
+     * Create a file writer using a path
+     * Create a buffered writer using a file writer (for performance)
+     *
+     * @param path   destination file path
+     * @param person the person to be written
+     */
+    public static void addPersonByAppend(String path, Person person) {
+        try (FileWriter fileWriter = new FileWriter(path, true);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+            bufferedWriter.newLine();
+            bufferedWriter.write(person.getName());
         } catch (IOException e) {
-            System.out.println("no such thing");
+            System.out.println("error writing file " + path);
         }
     }
 
-
+    // TODO: add person by append using nio
 }
