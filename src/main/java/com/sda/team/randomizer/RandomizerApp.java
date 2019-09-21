@@ -20,5 +20,17 @@ public class RandomizerApp {
         // save person to list (database)
         List<Person> people = new ArrayList<>();
         people.add(person);
+
+        Person alex = new Person("alex", 2);
+        people.add(1, alex);
+
     }
+
+    public static void displayMenu() {
+        System.out.println("1. Add new person");
+        System.out.println("2. Select next");
+        System.out.println("3. Exit");
+
+    }
+
 }
