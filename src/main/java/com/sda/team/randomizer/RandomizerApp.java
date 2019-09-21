@@ -25,24 +25,31 @@ public class RandomizerApp {
         List<Person> people = new ArrayList<>();
         people.add(person);
 
-        String path = "C:\\dev\\sda-group11-team\\src\\main\\resources\\people.txt";
+        // TODO: use relative path
+        String path = "C:\\dev\\sda\\group11-team\\src\\main\\resources\\people.txt";
 
-        try {
-            loadData(path);
-        } catch (IOException e) {
-            System.out.println("error reading file");
-        }
+        List<String> listOfStrings = loadData(path);
+        printList(listOfStrings);
     }
 
-    private static void loadData(String path) throws IOException {
+    private static List<String> loadData(String path) {
         File file = new File(path);
-        BufferedReader br = new BufferedReader(new FileReader(file));
-
-        String firstLine;
-        List<String> person = new ArrayList<>();
-
-        while ((firstLine = br.readLine()) != null) {
-            person.add(firstLine);
+        List<String> peopleNames = new ArrayList<>();
+        try (FileReader fileReader = new FileReader(file);
+             BufferedReader br = new BufferedReader(fileReader)) {
+            String firstLine;
+            while ((firstLine = br.readLine()) != null) {
+                peopleNames.add(firstLine);
+            }
+        } catch (IOException e) {
+            System.out.println("could not load data from " + path);
         }
+        return peopleNames;
+    }
+
+    // TODO: load data using nio
+
+    private static void printList(List<String> list) {
+        list.forEach(element -> System.out.println(element));
     }
 }
