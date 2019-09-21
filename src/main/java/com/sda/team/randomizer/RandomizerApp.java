@@ -37,9 +37,7 @@ public class RandomizerApp {
         System.out.println("1. Add new person");
         System.out.println("2. Select next");
         System.out.println("3. Exit");
-
     }
-
 
     /**
      * Create a file writer using a path
