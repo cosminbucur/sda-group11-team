@@ -17,33 +17,21 @@ public class RandomizerApp {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
 
-        // TODO: implement random difficulty setting
-        // create object from name
-        Person person = new Person(name, 1);
-
         // save person to list (database)
         List<Person> people = new ArrayList<>();
-        //   people.add(person);
-        people.add(new Person("vlad", 1));
-        people.add(new Person("laur", 4));
-        people.add(new Person("cosmina", 3));
 
-        Collections.sort(people);
-
-        System.out.println("People after sort");
-        System.out.println(people.toString());
-
-
-
-
-
-        Person alex = new Person("alex", 2);
-        people.add(1, alex);
-
-
+        // create object from name
+        Person person = new Person(name, 1);
         String path = "C:\\dev\\sda\\group11-team\\src\\main\\resources\\people.txt";
 
         addPersonByAppend(path, person);
+    }
+
+    public static List<Person> sortPeopleByDifficulty(List<Person> people) {
+        Collections.sort(people);
+        System.out.println("People after sort");
+        System.out.println(people.toString());
+        return people;
     }
 
     public static void displayMenu() {
