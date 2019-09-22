@@ -1,13 +1,34 @@
 package com.sda.team.randomizer;
 
+import com.sda.team.randomizer.controller.MainController;
+import com.sda.team.randomizer.input.CustomFileReader;
+import com.sda.team.randomizer.model.Person;
+import com.sda.team.randomizer.output.CustomFileWriter;
+import com.sda.team.randomizer.ui.MenuBuilder;
+import com.sda.team.randomizer.utils.ListUtil;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class RandomizerApp {
 
     public static void main(String[] args) {
+        MenuBuilder menuBuilder = new MenuBuilder();
+        MainController mainController = new MainController();
+
         System.out.println("running");
+
+        // display menu
+        menuBuilder.displayMenu();
+
+        // grab user input
+        Scanner scanner = new Scanner(System.in);
+        String menuOption = scanner.nextLine();
+
+        // dispatch option
+        mainController.dispatch(menuOption);
 
         // read a person's name from the user input
 //        Scanner scanner = new Scanner(System.in);

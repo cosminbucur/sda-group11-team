@@ -1,4 +1,6 @@
-package com.sda.team.randomizer;
+package com.sda.team.randomizer.output;
+
+import com.sda.team.randomizer.model.Person;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
