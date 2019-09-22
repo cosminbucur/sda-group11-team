@@ -5,11 +5,20 @@ public class Person implements Comparable<Person> {
     private String name;
     private int difficulty;
     private boolean isPresent;
+    private Integer id;
+
+    public Person() {
+
+    }
 
     public Person(String name, int difficulty) {
         this.name = name;
         this.difficulty = difficulty;
         this.isPresent = true;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     @Override

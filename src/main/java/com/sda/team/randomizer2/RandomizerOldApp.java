@@ -5,10 +5,7 @@ import com.sda.team.randomizer.model.Person;
 import com.sda.team.randomizer.output.CustomFileWriter;
 import com.sda.team.randomizer.ui.MenuBuilder;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RandomizerOldApp {
     private static final String PEOPLE_RELATIVE_PATH = RandomizerOldApp.class.getResource("/people.txt").toString();
@@ -35,14 +32,26 @@ public class RandomizerOldApp {
 
         // I want to select next person randomly to complete a given task with a difficulty between 1 and 5.
         // TODO: select next person
-        Person nextPerson = selectNextPerson();
+        selectNextPerson();
+
 
 //        List<String> listOfStrings = CustomFileReader.loadDataUsingNio(PEOPLE_RELATIVE_PATH);
 //        ListUtil.printList(listOfStrings);
     }
 
-    private static Person selectNextPerson() {
-        return null;
+    private static String selectNextPerson() {
+        Scanner scanner = new Scanner(System.in);
+        String nextPersonName = scanner.nextLine();
+        return nextPersonName;
+    }
+
+    private static Map<Integer, Person> convertListToMap(List<Person> personList) {
+        Map<Integer, Person> personMap = new HashMap<>();
+
+        for (Person person : personList) {
+            personMap.put(person.getId(), person);
+        }
+        return personMap;
     }
 
     private static void addPerson() {
