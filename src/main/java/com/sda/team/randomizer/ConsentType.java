@@ -1,22 +1,18 @@
 package com.sda.team.randomizer;
 
-import java.util.Scanner;
-
 public enum ConsentType {
 
     ACCEPTED("consent accepted"),
     REJECTED("consent rejected"),
     PENDING("consent pending");
 
-    String message;
+    private String message;
 
     ConsentType(String message) {
         this.message = message;
     }
 
-    public static String typeOfConsent() {
-        Scanner input = new Scanner(System.in);
-        String inputMessage = input.nextLine();
+    public static String typeOfConsent(String inputMessage) {
         if (inputMessage.equalsIgnoreCase("accepted")) {
             System.out.println(ACCEPTED.getMessage());
         }
