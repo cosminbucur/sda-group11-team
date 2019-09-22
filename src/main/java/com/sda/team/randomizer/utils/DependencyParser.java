@@ -6,8 +6,7 @@ import java.util.regex.Pattern;
 
 public class DependencyParser {
 
-    static String className = DependencyParser.class.getName();
-    private static final Logger logger = Logger.getLogger(className);
+    private static final Logger logger = Logger.getLogger(DependencyParser.class.getName());
 
     private static final String LONG_DEPENDENCY_PATTERN = "compile group: '(\\S*)', name: '(\\S*)', version: '(\\S*)'";
 
