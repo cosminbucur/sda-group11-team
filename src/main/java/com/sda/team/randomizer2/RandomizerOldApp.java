@@ -5,7 +5,11 @@ import com.sda.team.randomizer.model.Person;
 import com.sda.team.randomizer.output.CustomFileWriter;
 import com.sda.team.randomizer.ui.MenuBuilder;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class RandomizerOldApp {
     private static final String PEOPLE_RELATIVE_PATH = RandomizerOldApp.class.getResource("/people.txt").toString();
@@ -32,8 +36,7 @@ public class RandomizerOldApp {
 
         // I want to select next person randomly to complete a given task with a difficulty between 1 and 5.
         // TODO: select next person
-        selectNextPerson();
-
+        Person nextPerson = selectNextPerson();
 
 //        List<String> listOfStrings = CustomFileReader.loadDataUsingNio(PEOPLE_RELATIVE_PATH);
 //        ListUtil.printList(listOfStrings);
@@ -79,5 +82,13 @@ public class RandomizerOldApp {
         System.out.println("People after sort");
         System.out.println(people.toString());
         return people;
+    }
+
+    public static int getRandomDifficulty(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+        Random random = new Random();
+        return random.nextInt((max - min) + 1) + min;
     }
 }
