@@ -5,24 +5,16 @@ import com.sda.team.randomizer.model.Person;
 import com.sda.team.randomizer.output.CustomFileWriter;
 import com.sda.team.randomizer.ui.MenuBuilder;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class RandomizerOldApp {
     private static final String PEOPLE_RELATIVE_PATH = RandomizerOldApp.class.getResource("/people.txt").toString();
     private static List<Person> people = new ArrayList<>();
 
-    public static int getRandomDifficulty(int min, int max) {
-
-
-        if (min >= max) {
-            throw new IllegalArgumentException("max must be greater than min");
-        }
-
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
-
-
-    }
 
     public static void main(String[] args) {
         MenuBuilder menuBuilder = new MenuBuilder();
@@ -75,6 +67,7 @@ public class RandomizerOldApp {
         // TODO: implement random difficulty setting
         Person person = new Person(name, 0);
 
+
         // add to list
         people.add(person);
 
@@ -87,5 +80,13 @@ public class RandomizerOldApp {
         System.out.println("People after sort");
         System.out.println(people.toString());
         return people;
+    }
+
+    public static int getRandomDifficulty(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+        Random random = new Random();
+        return random.nextInt((max - min) + 1) + min;
     }
 }
