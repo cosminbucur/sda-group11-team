@@ -3,6 +3,7 @@ package com.sda.team.randomizer;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,6 +32,18 @@ class RandomizerAppTest {
 //                new Person("laur", 4));
 
         List<Person> actualList = RandomizerApp.sortPeopleByDifficulty(people);
+
+        assertThat(actualList).isEqualTo(expectedList);
+    }
+
+    @Test
+    void givenFilePath_whenLoadDataUsingNio_returnListOfStrings() {
+        String filePath = "C:\\dev\\sda\\group11-team\\src\\test\\resources\\people.txt";
+        List<String> expectedList = Arrays.asList("Cosmina Morar",
+                "Greta Melneciuc");
+
+        // list from file = this list
+        List<String> actualList = RandomizerApp.loadDataUsingNio(filePath);
 
         assertThat(actualList).isEqualTo(expectedList);
     }

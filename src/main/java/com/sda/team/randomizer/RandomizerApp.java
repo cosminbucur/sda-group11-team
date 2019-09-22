@@ -6,10 +6,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 public class RandomizerApp {
 
@@ -17,14 +19,17 @@ public class RandomizerApp {
         System.out.println("running");
 
         // read a person's name from the user input
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
+//        Scanner scanner = new Scanner(System.in);
+//        String name = scanner.nextLine();
 
         // TODO: implement random difficulty setting
         // create object from name
-        Person person = new Person(name, 1);
+//        Person person = new Person(name, 1);
+        Person person = new Person("name", 1);
 
         // TODO: use relative path
+        String relativePath = RandomizerApp.class.getResource("/people.txt").toString();
+
         String path = "C:\\dev\\sda\\group11-team\\src\\main\\resources\\people.txt";
 
         addPersonByAppend(path, person);
@@ -42,9 +47,9 @@ public class RandomizerApp {
         List<String> peopleNames = new ArrayList<>();
         try (FileReader fileReader = new FileReader(file);
              BufferedReader br = new BufferedReader(fileReader)) {
-            String firstLine;
-            while ((firstLine = br.readLine()) != null) {
-                peopleNames.add(firstLine);
+            String currentLine;
+            while ((currentLine = br.readLine()) != null) {
+                peopleNames.add(currentLine);
             }
         } catch (IOException e) {
             System.out.println("could not load data from " + path);
@@ -52,7 +57,17 @@ public class RandomizerApp {
         return peopleNames;
     }
 
-    // TODO: load data using nio
+    public static List<String> loadDataUsingNio(String filePath) {
+        Path path = Paths.get(filePath);
+        List<String> result = new ArrayList<>();
+        try {
+            result = Files.readAllLines(path);
+        } catch (IOException e) {
+            System.out.println("failed loading data from " + filePath);
+        }
+        return result;
+    }
+
     private static void printList(List<String> list) {
         list.forEach(element -> System.out.println(element));
     }
@@ -80,8 +95,7 @@ public class RandomizerApp {
     public static void addPersonByAppend(String path, Person person) {
         try (FileWriter fileWriter = new FileWriter(path, true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-            bufferedWriter.newLine();
-            bufferedWriter.write(person.getName());
+            bufferedWriter.write(person.getName() + "\n");
         } catch (IOException e) {
             System.out.println("error writing file " + path);
         }
