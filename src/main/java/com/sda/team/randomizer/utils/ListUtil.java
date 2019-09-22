@@ -1,4 +1,4 @@
-package com.sda.team.randomizer;
+package com.sda.team.randomizer.utils;
 
 import java.util.List;
 

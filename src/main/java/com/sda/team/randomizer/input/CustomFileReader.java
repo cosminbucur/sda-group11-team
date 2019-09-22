@@ -1,4 +1,4 @@
-package com.sda.team.randomizer;
+package com.sda.team.randomizer.input;
 
 import java.io.BufferedReader;
 import java.io.File;
