@@ -1,4 +1,4 @@
-package com.sda.team.randomizer;
+package com.sda.team.randomizer.model;
 
 import com.sda.team.randomizer.exceptions.InvalidConsentType;
 

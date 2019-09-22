@@ -1,4 +1,4 @@
-package com.sda.team.randomizer;
+package com.sda.team.randomizer.input;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,7 +27,7 @@ public class CustomFileReader {
     }
 
     public static List<String> loadDataUsingNio(String filePath) {
-        Path path = Paths.get(filePath);
+        Path path = Paths.get(filePath.substring(6));
         List<String> result = new ArrayList<>();
         try {
             result = Files.readAllLines(path);

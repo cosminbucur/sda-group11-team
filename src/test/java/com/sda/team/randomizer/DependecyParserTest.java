@@ -1,5 +1,6 @@
 package com.sda.team.randomizer;
 
+import com.sda.team.randomizer.utils.DependencyParser;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
