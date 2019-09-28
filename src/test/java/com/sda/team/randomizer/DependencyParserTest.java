@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class DependencyParserTest {
+public class DependencyParserTest {
 
     @Test
     public void givenLongDependencyName_whenToShortVersion_returnShortDependencyName() {

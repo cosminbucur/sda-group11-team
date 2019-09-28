@@ -9,7 +9,7 @@ public class MainController {
     public void dispatch(String input) {
         switch (input) {
             case "1":
-                personRepository.addPerson();
+                personRepository.addPerson(input);
                 break;
             case "2":
                 personRepository.selectNextPerson();
