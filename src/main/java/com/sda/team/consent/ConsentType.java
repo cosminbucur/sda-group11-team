@@ -1,5 +1,7 @@
 package com.sda.team.consent;
 
+import com.sda.team.consent.exceptions.UnknownConsentTypeException;
+
 import java.util.Arrays;
 
 public enum ConsentType {

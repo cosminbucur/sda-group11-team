@@ -5,10 +5,7 @@ import com.sda.team.randomizer.model.Person;
 import com.sda.team.randomizer.output.CustomFileWriter;
 import com.sda.team.randomizer.ui.MenuBuilder;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RandomizerOldApp {
     private static final String PEOPLE_RELATIVE_PATH = RandomizerOldApp.class.getResource("/people.txt").toString();
@@ -41,7 +38,12 @@ public class RandomizerOldApp {
 //        ListUtil.printList(listOfStrings);
     }
 
-    private static Person selectNextPerson() {
+    public static Person selectNextPerson() {
+
+        Random randomlySelectNextPerson = new Random();
+        randomlySelectNextPerson.ints(people.size());
+
+
         return null;
     }
 
