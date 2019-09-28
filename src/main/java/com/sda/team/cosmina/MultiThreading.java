@@ -1,6 +1,6 @@
 package com.sda.team.cosmina;
 
-public class Multithreading {
+public class MultiThreading {
 
     public static void main(String[] args) {
 
@@ -8,6 +8,7 @@ public class Multithreading {
         Thread worker = new Thread(task);
         worker.start();
 
+        // anonymous class
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
