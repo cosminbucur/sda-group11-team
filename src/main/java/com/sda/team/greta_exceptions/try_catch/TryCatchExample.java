@@ -14,7 +14,6 @@ public class TryCatchExample {
         try {
             result = firstNumber / secondNumber;
             System.out.println("The result is: " + result);
-            return result;
         } catch (ArithmeticException e) {
             System.out.println("Check the numbers you entered");
             System.out.println("The message is " + e.getMessage());
