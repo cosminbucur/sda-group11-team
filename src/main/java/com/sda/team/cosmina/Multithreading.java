@@ -1,6 +1,6 @@
 package com.sda.team.cosmina;
 
-public class Threads {
+public class Multithreading {
 
     public static void main(String[] args) {
 
