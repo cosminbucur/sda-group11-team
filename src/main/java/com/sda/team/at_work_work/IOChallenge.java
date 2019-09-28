@@ -22,7 +22,7 @@ public class IOChallenge {
         String path = "C:\\dev\\Files\\listaCumparaturi.txt";
 
         File listaCumparaturi = new File(path);
-        FileWriter fileWriter = fileWriter = new FileWriter(listaCumparaturi, true);
+        FileWriter fileWriter = new FileWriter(listaCumparaturi, true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
         appendProductsToFile(shoppingList, bufferedWriter);

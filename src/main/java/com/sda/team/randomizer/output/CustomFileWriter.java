@@ -10,8 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class CustomFileWriter {
-
-    // TODO: make non static
     /**
      * Create a file writer using a path
      * Create a buffered writer using a file writer (for performance)
@@ -29,8 +27,8 @@ public class CustomFileWriter {
     }
 
     // TODO: add person by append using nio
-    public static void addPersonByAppendUsingNio(String pathAsString, Person person) {
-        Path path = Paths.get(pathAsString.substring(6));
+    public static void addPersonByAppendUsingNIO(String pathAsString, Person person) {
+        Path path = Paths.get(pathAsString);
         try {
             Files.write(path, person.getName().getBytes());
         } catch (IOException e) {
