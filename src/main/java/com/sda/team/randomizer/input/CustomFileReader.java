@@ -27,7 +27,7 @@ public class CustomFileReader {
     }
 
     public static List<String> loadDataUsingNio(String filePath) {
-        Path path = Paths.get(filePath.substring(6));
+        Path path = Paths.get(filePath);
         List<String> result = new ArrayList<>();
         try {
             result = Files.readAllLines(path);

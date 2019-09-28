@@ -5,7 +5,14 @@ import com.sda.team.randomizer.model.Person;
 import com.sda.team.randomizer.output.CustomFileWriter;
 import com.sda.team.randomizer.ui.MenuBuilder;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
 
 public class RandomizerOldApp {
     private static final String PEOPLE_RELATIVE_PATH = RandomizerOldApp.class.getResource("/people.txt").toString();
@@ -36,6 +43,14 @@ public class RandomizerOldApp {
 
 //        List<String> listOfStrings = CustomFileReader.loadDataUsingNio(PEOPLE_RELATIVE_PATH);
 //        ListUtil.printList(listOfStrings);
+
+        List<Person> listToPrint = Arrays.asList(new Person("gigi", 1));
+        Map<Integer, Person> mareMapa = convertListToMap(listToPrint);
+        printMapElements(mareMapa);
+    }
+
+    public static void printMapElements(Map<Integer, Person> printingMap) {
+        printingMap.forEach((integer, person) -> System.out.println(integer.toString() + " " + person.toString()));
     }
 
     private static String selectNextPerson() {
@@ -48,7 +63,8 @@ public class RandomizerOldApp {
         Map<Integer, Person> personMap = new HashMap<>();
 
         for (Person person : personList) {
-            personMap.put(person.getId(), person);
+            // add to map ( index of person from list, person)
+            personMap.put(personList.indexOf(person), person);
         }
         return personMap;
     }

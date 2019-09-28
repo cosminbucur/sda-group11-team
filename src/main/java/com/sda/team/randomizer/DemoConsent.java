@@ -8,6 +8,6 @@ public class DemoConsent {
         Scanner input = new Scanner(System.in);
         System.out.println("insert from: accepted, rejected, pending");
         String inputMessage = input.nextLine();
-        System.out.println(ConsentType.typeOfConsent(inputMessage));
+//        System.out.println(ConsentType.typeOfConsent(inputMessage));
     }
 }
