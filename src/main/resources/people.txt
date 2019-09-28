@@ -1,7 +1,3 @@
-Cosmina Morar
-Greta Melneciuc
-Laurentiu Panaete
-Vlad Ionescu
-Vlad Burlacu
-name
-name
+ana
+alex
+ana
